@@ -1,0 +1,29 @@
+const express = require("express");
+const app = express();
+const port = 3020;
+const path = require("path");
+const dbconnect = require('./database');
+
+app.use(express.static(path.join(__dirname, "/public/"))); //สร้างpath
+
+
+
+app.any("select * from product").then((data1)=>{
+  console.log(data1);
+
+}).catch((error1)=>{
+  console.log("error")
+})
+
+
+app.get("/", (res, req) => {
+  const text = dbconnect.query("select * from product")
+  
+  req.send(text);
+});
+
+app.listen(port, () => {
+  console.log(`start port ${port}` );
+});
+
+app.get('/', )
