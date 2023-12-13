@@ -27,3 +27,6 @@ app.listen(port, () => {
 });
 
 app.get('/', )
+
+
+ejs คือ template engine
